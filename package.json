@@ -1,7 +1,7 @@
 {
-  "name": "base_node_project_template",
+  "name": "flight_service",
   "version": "1.0.0",
-  "description": "A basic starter boiler plate for node js projects",
+  "description": "Representation of backend of flight booking service",
   "main": "index.js",
   "scripts": {
     "dev": "npx nodemon src/index.js",
