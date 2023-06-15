@@ -68,9 +68,23 @@ async function destroyAirplane(id) {
     );
   }
 }
+
+async function updateAirplane(id, data) {
+  try {
+    const aiplane = await airplaneRepository.update(id, data);
+    return aiplane;
+  } catch (error) {
+    throw new AppError(
+      "Cannot fetch data of all the airplanes",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
 module.exports = {
   createAirplane,
   getAirplanes,
   getAirplane,
   destroyAirplane,
+  updateAirplane,
 };
