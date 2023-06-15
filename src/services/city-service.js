@@ -27,6 +27,18 @@ async function createCity(data) {
   }
 }
 
+async function updateCity(id, data) {
+  try {
+    const city = await cityRepository.update(id, data);
+    return city;
+  } catch (error) {
+    throw new AppError(
+      "Cannot update the name of the city",
+      StatusCodes.INTERNAL_SERVER_ERROR
+    );
+  }
+}
+
 async function destroyCity(id) {
   try {
     const city = await cityRepository.destroy(id);
@@ -44,5 +56,6 @@ async function destroyCity(id) {
 
 module.exports = {
   createCity,
+  updateCity,
   destroyCity,
 };
