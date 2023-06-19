@@ -24,6 +24,17 @@ async function createFlight(req, res) {
   }
 }
 
+async function getAllFlightData(req, res) {
+  try {
+    const flights = await FlightService.getAllFlightData();
+    SuccessResponse.data = flights;
+    return res.status(StatusCodes.OK).json(SuccessResponse);
+  } catch (error) {
+    ErrorResponse.error = error;
+    return res.status(error.statusCode).json(ErrorResponse);
+  }
+}
+
 async function getAllFlights(req, res) {
   try {
     const flights = await FlightService.getAllFlights(req.query);
@@ -37,5 +48,6 @@ async function getAllFlights(req, res) {
 
 module.exports = {
   createFlight,
+  getAllFlightData,
   getAllFlights,
 };

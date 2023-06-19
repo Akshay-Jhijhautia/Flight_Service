@@ -10,6 +10,7 @@ router.post(
   FlightController.createFlight
 );
 
+router.get("/all", FlightController.getAllFlightData);
 router.get("/", FlightController.getAllFlights);
 
 module.exports = router;
